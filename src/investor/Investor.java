@@ -1,16 +1,18 @@
 package investor;
 
 
-public class Investor<StockMarket> {
+public class Investor {
     private String id;
     private String investName;
     private int shares;
+    private int budget;
 
   
     protected Investor(InvestorBuilder builder) {
         this.id = builder.id;
         this.investName = builder.name;
         this.shares = builder.shares;
+        this.budget = builder.budget;
     }
 
     public String getId() {
@@ -24,10 +26,14 @@ public class Investor<StockMarket> {
     public int getShares() {
         return shares;
     }
+    
+    public int getBudget() {
+        return budget;
+    }
 
     @Override
     public String toString() {
-    	String text = "Name; " + investName + " shares: " + shares;
+    	String text = "Name; " + investName + " budget: " + budget + " shares: " + shares;
     	return text;
     }
     
