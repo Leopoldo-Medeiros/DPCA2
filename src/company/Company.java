@@ -40,11 +40,12 @@ public class Company {
     	return sold;
     }
     public void setSold() {
-    	sold++;
+    	this.shares--;
+    	this.sold++;
     	if(sold == 10) {
-    		price = price * 2;
+    		price = price * 2.00;
     		sold = 0;
-    	//	System.out.println("DOUBLED--"+ compName + "--DOUBLED");
+    		System.out.println("DOUBLED--"+ compName + "--DOUBLED");
     	}
 	}
     

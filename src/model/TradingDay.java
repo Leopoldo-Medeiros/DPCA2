@@ -14,7 +14,8 @@ import investor.*;
 public class TradingDay {
 	private File file;
 	private int fails = 0;
-	private int cheapestShare = 100;
+	private double cheapestShare = 100;
+	private int totalTrades = 0;
 	Investor inv;
 	Random random;
 	private Scanner scanner;
@@ -25,17 +26,16 @@ public class TradingDay {
 	public TradingDay() {
 		getCompanies();
 		startTrade();
-
+		System.out.println("Number of trades: " + totalTrades );
 	}
 
 	private void startTrade() {
-		while (fails < 100) {
-			if (baseIterator.hasNext()) {
+		while (fails < 100)
+				if(baseIterator.hasNext()) {
 				inv = baseIterator.next();
 				buyShare(inv);
-			} else {
-				inv = baseIterator.restart();
-			}
+		}else {
+			baseIterator.restart();
 		}
 	}
 
@@ -44,26 +44,40 @@ public class TradingDay {
 		int number = random.nextInt(100);
 		Company com = companies.get(number);
 		if (com.getShares() > 0) {
-			if (inv.getBudget() > cheapestShare) {
+			if (inv.getBudget() >= cheapestShare) {
 				if (inv.getBudget() > com.getPrice()) {
 					inv.setBudget(inv.getBudget() - com.getPrice());
 					com.setSold();
+					checkCompanies();
+					totalTrades++;
 					System.out.println("TRADE BETWEEN " + inv + " --AND--> " + com);
 				}
 			} else {
 				fails++;
-				System.out.println("FAILED--"+ inv.getInvestorName() + " --FAILED");
+			    System.out.println("FAILED--"+ inv.getInvestorName() + " --FAILED");
 			}
 		}
 		cheapestShare();
 	}
 
-	private void cheapestShare() {
+	private void checkCompanies() {
+		if(totalTrades % 10 == 0) {
+			for (int i = 0; i < companies.size(); i++) {
+				Company com = companies.get(i);
+				if (com.getSold() == 0) {
+					double value = com.getPrice() - (com.getPrice() * 0.02);
+					com.setPrice(value);
+					System.out.println("REDUCED--"+ com.getCompName() + " --REDUCED");
+				}
+			}
+		}
+	}
 
+	private void cheapestShare() {
 		for (int i = 0; i < companies.size(); i++) {
 
 			if (cheapestShare > companies.get(i).getPrice()) {
-				System.out.println(cheapestShare + " " + companies.get(i).getPrice());
+				System.out.println(cheapestShare);
 				cheapestShare = companies.get(i).getPrice();
 			}
 		}
