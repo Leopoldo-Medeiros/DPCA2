@@ -2,6 +2,7 @@ package model;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -16,7 +17,6 @@ public class TradingDay {
 	private int fails = 0;
 	private double cheapestShare = 100;
 	private int totalTrades = 0;
-	Investor inv;
 	Random random;
 	private Scanner scanner;
 	InvestorCollectionInterface investors = getInvestors();
@@ -27,12 +27,13 @@ public class TradingDay {
 		getCompanies();
 		startTrade();
 		System.out.println("Number of trades: " + totalTrades );
+		new View();
 	}
 
 	private void startTrade() {
 		while (fails < 100)
 				if(baseIterator.hasNext()) {
-				inv = baseIterator.next();
+				Investor inv = baseIterator.next();
 				buyShare(inv);
 		}else {
 			baseIterator.restart();
@@ -118,5 +119,6 @@ public class TradingDay {
 		}
 		return investors;
 	}
+	
 
 }

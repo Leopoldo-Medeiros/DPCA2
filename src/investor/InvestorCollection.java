@@ -25,5 +25,10 @@ public class InvestorCollection implements InvestorCollectionInterface {
 	public InvestorIterator iterator() {
 		return new InvestorIterator(this.investors);
 	}
+	
+	@Override
+	public int size() {
+		return investors.size();
+	}
 
 }
