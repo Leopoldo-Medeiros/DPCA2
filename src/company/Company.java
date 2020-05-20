@@ -37,7 +37,7 @@ public class Company {
     
     @Override
     public String toString() {
-    	String text = "Name; " + compName + " number: " + shares + " price: " + price;
+    	String text = "Company: " + compName + " Number: " + shares + " Price: " + price;
     	return text;
     }
 
