@@ -5,7 +5,7 @@ public class Investor {
     private String id;
     private String investName;
     private int shares;
-    private int budget;
+    private double budget;
 
   
     protected Investor(InvestorBuilder builder) {
@@ -27,7 +27,7 @@ public class Investor {
         return shares;
     }
     
-    public int getBudget() {
+    public double getBudget() {
         return budget;
     }
 
@@ -37,7 +37,7 @@ public class Investor {
     	return text;
     }
 
-	public void setBudget(int budget) {
+	public void setBudget(double budget) {
 		this.budget = budget;
 		this.shares++;
 	}

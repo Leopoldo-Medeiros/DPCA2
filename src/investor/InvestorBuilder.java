@@ -12,7 +12,7 @@ public class InvestorBuilder {
     protected String id;
     protected int shares;
     protected String name;
-    protected int budget;
+    protected double budget;
     
     public InvestorBuilder(String name) {
     	this.name = name;
@@ -25,7 +25,7 @@ public class InvestorBuilder {
     
 public Investor build() {
     	this.shares = 0;
-    	this.budget = rand.nextInt(high-low) + low;
+    	this.budget = low + (rand.nextDouble() * (high-low));
     	return new Investor(this);
     }
     

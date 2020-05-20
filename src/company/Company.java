@@ -8,7 +8,7 @@ import investor.InvestorBuilder;
 public class Company {
 	 private String id;
 	    private String compName;
-	    private int price;
+	    private double price;
 	    private int shares;
 	    protected int sold;
     
@@ -28,7 +28,7 @@ public class Company {
         return compName;
     }
 
-    public int getPrice() {
+    public double getPrice() {
     	return price;
     }
     
@@ -36,12 +36,15 @@ public class Company {
     	return shares;
     }
 
+    public int getSold() {
+    	return sold;
+    }
     public void setSold() {
     	sold++;
     	if(sold == 10) {
     		price = price * 2;
     		sold = 0;
-    		System.out.println("DOUBLED--"+ compName + "--DOUBLED");
+    	//	System.out.println("DOUBLED--"+ compName + "--DOUBLED");
     	}
 	}
     
@@ -50,6 +53,10 @@ public class Company {
     	String text = "Company: " + compName + " Number: " + shares + " Price: " + price;
     	return text;
     }
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
 
 	
 

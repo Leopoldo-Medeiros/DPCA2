@@ -6,7 +6,7 @@ public class CompanyBuilder {
 	private Random rand = new Random();
     protected String id;
     protected String compName;
-    protected int price;
+    protected double price;
     protected int shares;
     
 
@@ -21,7 +21,7 @@ public class CompanyBuilder {
     }
 
     public Company build() {
-        this.price = rand.nextInt(100-10) + 10;
+        this.price = 10 + (rand.nextDouble() * 90);
         this.shares = rand.nextInt(1000-500) + 500;
         return new Company(this);
     }
