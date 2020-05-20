@@ -36,5 +36,9 @@ public class Investor {
     	String text = "Investor: " + investName + " Budget: " + budget + " Shares: " + shares;
     	return text;
     }
+
+	public void setBudget(int budget) {
+		this.budget = budget;
+	}
     
 }
