@@ -7,14 +7,16 @@ import java.util.Map;
 import java.util.Scanner;
 
 import investor.*;
+import company.*;
 
 public class StockMarket {
     
 	public static void main(String[] args) {
 		
-		        Investor inv = new InvestorBuilder("leo").setInvestorId("03234").build();
-				System.out.println(inv);
-		   
+		    Investor inv = new InvestorBuilder("Leo").setInvestorId("03234").build();
+			System.out.println(inv);
+			Company com = new CompanyBuilder("Apple").setId("94123").build();
+			System.out.println(com);
 	}
    
 
