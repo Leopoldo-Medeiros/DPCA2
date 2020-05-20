@@ -39,6 +39,7 @@ public class Investor {
 
 	public void setBudget(int budget) {
 		this.budget = budget;
+		this.shares++;
 	}
     
 }

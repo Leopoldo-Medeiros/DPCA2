@@ -34,4 +34,10 @@ public class InvestorIterator implements InvestorIteratorInterface {
 		return investor;
 	}
 
+	@Override
+	public Investor restart() {
+		this.pos = 0;
+		return null;
+	}
+
 }

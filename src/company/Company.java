@@ -10,12 +10,14 @@ public class Company {
 	    private String compName;
 	    private int price;
 	    private int shares;
+	    protected int sold;
     
 	    protected Company(CompanyBuilder builder) {
 	    	this.id = builder.id;
 	    	this.compName = builder.compName;
 	    	this.price = builder.price;
 	    	this.shares = builder.shares;
+	    	this.sold = 0;
 	    }
 	    
     public String getId() {
@@ -34,11 +36,21 @@ public class Company {
     	return shares;
     }
 
+    public void setSold() {
+    	sold++;
+    	if(sold == 10) {
+    		price = price * 2;
+    		sold = 0;
+    		System.out.println("DOUBLED--"+ compName + "--DOUBLED");
+    	}
+	}
     
     @Override
     public String toString() {
     	String text = "Company: " + compName + " Number: " + shares + " Price: " + price;
     	return text;
     }
+
+	
 
 }
