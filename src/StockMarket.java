@@ -10,15 +10,47 @@ import investor.*;
 import company.*;
 
 public class StockMarket {
-    
+	static File file;
+	static Scanner scanner;
+	
 	public static void main(String[] args) {
-		
-		    Investor inv = new InvestorBuilder("Leo").setInvestorId("03234").build();
-			System.out.println(inv);
-			Company com = new CompanyBuilder("Apple").setId("94123").build();
-			System.out.println(com);
+		newData();
 	}
+
+	private static void newData() {
+			try {
+			     file = new File("src/investor/InvestorsName.txt");
+			     scanner = new Scanner(file);
+			      while (scanner.hasNextLine()) {
+			        String name = scanner.nextLine();
+			        Investor inv = new InvestorBuilder(name).setInvestorId("03234").build();
+					System.out.println(inv);
+			      }
+			      scanner.close();
+			    } catch (FileNotFoundException e) {
+			      e.printStackTrace();
+			    }
+			
+			try {
+			     file = new File("src/company/CompaniesName.txt");
+			     scanner = new Scanner(file);
+			      while (scanner.hasNextLine()) {
+			        String name = scanner.nextLine();
+			        Company com = new CompanyBuilder(name).setId("94123").build();
+					System.out.println(com);
+			      }
+			      scanner.close();
+			    } catch (FileNotFoundException e) {
+			      e.printStackTrace();
+			    }
+			
+			
+			
+		}
+	
    
+	
+	
 
 }
 

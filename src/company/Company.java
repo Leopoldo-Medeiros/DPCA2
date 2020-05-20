@@ -34,5 +34,11 @@ public class Company {
     	return shares;
     }
 
+    
+    @Override
+    public String toString() {
+    	String text = "Name; " + compName + " number: " + shares + " price: " + price;
+    	return text;
+    }
 
 }
