@@ -27,7 +27,7 @@ public class TradingDay {
 		getCompanies();
 		startTrade();
 		System.out.println("Number of trades: " + totalTrades );
-		new View();
+		new View(companies, investors);
 	}
 
 	private void startTrade() {

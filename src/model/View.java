@@ -3,12 +3,22 @@ package model;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+import company.Company;
+import investor.InvestorCollectionInterface;
+import model.FacadeReport.Result;
+import model.FacadeReport.Type;
 
 public class View {
 	private BufferedReader br;
 	
-		public View() {
-			
+	protected ArrayList<Company> companies;
+	protected InvestorCollectionInterface investors;
+	
+		public View(ArrayList<Company> companies, InvestorCollectionInterface investors) {
+			this.companies = companies;
+			this.investors = investors;
 			br = new BufferedReader(new InputStreamReader(System.in));
 			menu_view();
 		}
@@ -22,7 +32,7 @@ public class View {
 			String input = input();
 			
 			if(input.equals("1")){
-				System.out.println("Good comp");
+				FacadeReport.generateReport(Type.COMPANY, Result.HIGH, this);
 				menu_view();
 			}
 			else if(input.equals("2")){
