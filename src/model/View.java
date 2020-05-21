@@ -40,11 +40,11 @@ public class View {
 				menu_view();
 			}
 			else if(input.equals("3")){
-				System.out.println("Good inv");
+				FacadeReport.generateReport(Type.INVESTOR, Result.HIGH, this);
 				menu_view();
 			}
 			else if(input.equals("4")){
-				System.out.println("Good inv");
+				FacadeReport.generateReport(Type.INVESTOR, Result.LOW, this);
 				menu_view();
 			}
 			else {

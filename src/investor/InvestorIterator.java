@@ -14,9 +14,9 @@ public class InvestorIterator implements InvestorIteratorInterface {
 
 	@Override
 	public boolean hasNext() {
-		Investor inv = null;
+		
 		while (pos < investors.size()) {
-			inv = investors.get(pos);
+			
 			if (pos >= investors.size()) {
 				return false;
 			} else {
@@ -38,6 +38,15 @@ public class InvestorIterator implements InvestorIteratorInterface {
 	public Investor restart() {
 		this.pos = 0;
 		return null;
+	}
+
+	public Investor get(int position) {
+		Investor investor = investors.get(position);	
+		return investor;
+	}
+	
+	public void clear() {
+		investors.clear();
 	}
 
 }
