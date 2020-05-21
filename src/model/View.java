@@ -36,7 +36,7 @@ public class View {
 				menu_view();
 			}
 			else if(input.equals("2")){
-				System.out.println("Bad comp");
+				FacadeReport.generateReport(Type.COMPANY, Result.LOW, this);
 				menu_view();
 			}
 			else if(input.equals("3")){

@@ -30,6 +30,22 @@ public class FacadeReport {
 			}
 			System.out.println(high);
 		}
+		
+		if(type == Type.COMPANY && result == Result.LOW) {
+			ArrayList<Company> low = new ArrayList<Company>();
+			low.add(view.companies.get(0));
+			for (int i = 0; i < view.companies.size(); i++) {
+				double capital = view.companies.get(i).getPrice() * view.companies.get(i).getShares();
+				double highestCapital = low.get(0).getPrice() * low.get(0).getShares();
+				if (capital < highestCapital) {
+					low.clear();
+					low.add(view.companies.get(i));
+				} else if (capital == highestCapital) {
+					low.add(view.companies.get(i));
+				}
+			}
+			System.out.println(low);
+		}
 	}
 	
 	
