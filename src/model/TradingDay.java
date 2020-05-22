@@ -17,7 +17,6 @@ public class TradingDay {
 	private int fails = 0;
 	private double cheapestShare = 100;
 	private int totalTrades = 0;
-	private int numberOfInteractions = 1;
 	Random random;
 	private Scanner scanner;
 	InvestorCollectionInterface investors = getInvestors();
@@ -32,13 +31,12 @@ public class TradingDay {
 	}
 
 	private void startTrade() {
-		while (fails/numberOfInteractions <= 100)
+		while (fails <= 1000)
 			
 				if(baseIterator.hasNext()) {
 				Investor inv = baseIterator.next();
 				buyShare(inv);
 		}else {
-			numberOfInteractions++;
 			baseIterator.restart();
 		}
 	}

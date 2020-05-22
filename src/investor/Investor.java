@@ -33,7 +33,7 @@ public class Investor {
 
     @Override
     public String toString() {
-    	String text = "Investor: " + investName + " Budget: " + budget + " Shares: " + shares +"\n";
+    	String text = "Investor: " + investName + " Budget: " + budget + " Shares: " + shares;
     	return text;
     }
 
